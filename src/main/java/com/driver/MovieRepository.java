@@ -12,9 +12,9 @@ public class MovieRepository {
     private Map<String, List<String>> directorMovieMap; // director , List of movies
 
     public MovieRepository() {
-        this.movieMap = new HashMap<>();
-        this.directorMap = new HashMap<>();
-        this.directorMovieMap = new HashMap<>();
+        this.movieMap = new HashMap<String, Movie>();
+        this.directorMap = new HashMap<String, Director>();
+        this.directorMovieMap = new HashMap<String, List<String>>();
     }
    // 1 POST
     public void saveMovie(Movie movie) {  // just add into the movie map
@@ -28,6 +28,8 @@ public class MovieRepository {
     public void saveMovieDirectorPair(String movie, String director) {
  // check whether the movies are present in maps , then add list into director movie map
         if (movieMap.containsKey(movie) && directorMap.containsKey(director)) {
+            movieMap.put(movie, movieMap.get(movie));
+            directorMap.put(director, directorMap.get(director));
             List<String> currMovies = new ArrayList<>();
             if (directorMovieMap.containsKey(director)) currMovies = directorMovieMap.get(director);
             currMovies.add(movie);
@@ -87,7 +89,5 @@ public class MovieRepository {
             }
         }
 
-        directorMovieMap.clear();
-        directorMap.clear();
     }
 }

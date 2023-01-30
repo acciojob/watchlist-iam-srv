@@ -15,10 +15,9 @@ public class MovieService {
     MovieRepository movieRepository ;
 
    // 1
-    public String addMovie(Movie movie){
-        movieRepository.saveMovie(movie);
-        return "Movie Add Successfully";
-    }
+   public void addMovie(Movie movie){
+       movieRepository.saveMovie(movie);
+   }
 
     // 2
     public void addDirector(Director director){
@@ -26,37 +25,32 @@ public class MovieService {
     }
 
     //3
-    public void addPair( String movie ,String director){
+    public void createMovieDirectorPair( String movie ,String director){
         movieRepository.saveMovieDirectorPair(movie, director);
     }
 
     // 4
-    public Movie getMovie(String movie){
-         return movieRepository.findMovie(movie);
+    public Movie findMovie(String movieName){
+        return movieRepository.findMovie(movieName);
     }
 
-    // 5
-    public Director getDirector(String director){
-        return movieRepository.findDirector(director);
+    public Director findDirector(String directorName){
+        return movieRepository.findDirector(directorName);
     }
 
-    // 6
-    public List<String> getMovieByDirectorName(String director){
+    public List<String> findMoviesFromDirector(String director){
         return movieRepository.findMoviesFromDirector(director);
     }
 
-    // 7
-    public List<String> getAllMovies() {
+    public List<String> findAllMovies(){
         return movieRepository.findAllMovies();
     }
 
-    // 8
-    public void deleteDirectorByName(String director) {
+    public void deleteDirector(String director){
         movieRepository.deleteDirector(director);
     }
 
-    // 9
-    public void deleteAllDirectors() {
+    public void deleteAllDirectors(){
         movieRepository.deleteAllDirector();
     }
 }
