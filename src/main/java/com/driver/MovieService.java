@@ -1,35 +1,28 @@
 package com.driver;
 
-import org.apache.coyote.Response;
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.List;
 
 @Service
 public class MovieService {
 
     @Autowired
-    MovieRepository movieRepository ;
+    MovieRepository movieRepository;
 
-   // 1
-   public void addMovie(Movie movie){
-       movieRepository.saveMovie(movie);
-   }
+    public void addMovie(Movie movie){
+        movieRepository.saveMovie(movie);
+    }
 
-    // 2
     public void addDirector(Director director){
         movieRepository.saveDirector(director);
     }
 
-    //3
-    public void createMovieDirectorPair( String movie ,String director){
+    public void createMovieDirectorPair(String movie, String director){
         movieRepository.saveMovieDirectorPair(movie, director);
     }
 
-    // 4
     public Movie findMovie(String movieName){
         return movieRepository.findMovie(movieName);
     }
