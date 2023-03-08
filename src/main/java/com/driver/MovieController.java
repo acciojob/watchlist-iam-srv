@@ -73,4 +73,6 @@ public class MovieController {
         movieService.deleteAllDirectors();
         return new ResponseEntity<>("All directors deleted successfully", HttpStatus.CREATED);
     }
+
+
 }

@@ -5,7 +5,7 @@ import java.util.*;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MovieRepository {
+public class MovieRepository extends  Throwable{
 
     private HashMap<String, Movie> movieMap;
     private HashMap<String, Director> directorMap;
